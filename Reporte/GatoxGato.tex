@@ -36,8 +36,7 @@
 \maketitle              % typeset the header of the contribution
 %
 \begin{abstract}
-The abstract should briefly summarize the contents of the paper in
-15--250 words.
+Uno de los primeros acercamientos a la inteligencia artificial fue mediante la búsqueda principalmente en juegos donde por primeramente el se humano se enfrento contra una computadora, uno de los algoritmos de búsqueda más reconocido es el minimax así como su variante alpha-beta, por lo que usando dichos algoritmos se propone implementar un juego, el cual es una versión más compleja del juego clásico gato, el cual se denominó como gatoxgato.
 
 \keywords{Minimax  \and Alpha-Beta \and Búsqueda \and Inteligencia artificial}
 \end{abstract}
@@ -81,7 +80,7 @@ Poliansky~\cite{ref_article1} presenta el uso de la programación genética para
 \section{Metodología}
 Como vemos en el estado del arte el uso de modelos que se entrenan, para resolver estos juegos es una manera que computacionalmente es factible, sin embargo para la implementación de un modelos del juego Gato$\times$Gato que sea capaz de enfrentarse con personas usaremos un algoritmo de busqueda junto con el uso de alguna heurítica. Para la implementación de éste, usaremos una variante del algoritmo minimax Alpha-Beta. 
 \subsubsection{Algoritmo minimax}
-En teoría de juegos Minimax es un método de decisión para minimizar la pérdida máxima esperada en juegos con adversario y con información perfecta. El funcionamiento de Minimax puede resumirse a como elegir el mejor movimiento para ti mismo; suponiendo que tu contrincante tirará de manera óptima, es decir nos enfrentamos contra un oponente perfecto. Lo que se maximiza es una función, llamada función de evaluación, la cual debe reflejar unformación de la partida, como posiciones de partida, fichas, movientos favorecibles a un jugador, entre otras, cabe mencionar que dependiendo de cómo definamos dicha función, el algoritmo de comportará mejor o peor a la hora de maximizar, minimizar. Por lo tanto este algoritmo crea un árbol donde las hojas se etiquetan con gana, pierde, empata, desde el punto de vista de max, con ayuda de una heurística podemos etiquetar cada nodo del arbol, y el jugador max elegirá su movimiento, buscando en árbol un nodo terminal que lo lleve a la posición más favorable que puede esperar desde un estado $J(actual)$ del juego,  suponiendo que el jugador mín juega de manera ideal.
+En teoría de juegos Minimax es un método de decisión para minimizar la pérdida máxima esperada en juegos con adversario y con información perfecta. El funcionamiento de Minimax puede resumirse a como elegir el mejor movimiento para ti mismo; suponiendo que tu contrincante tirará de manera óptima, es decir nos enfrentamos contra un oponente perfecto. Lo que se maximiza es una función, llamada función de evaluación, la cual debe reflejar información de la partida, como posiciones de partida, fichas, movimientos favorecibles a un jugador, entre otras, cabe mencionar que dependiendo de cómo definamos dicha función, el algoritmo de comportará mejor o peor a la hora de maximizar, minimizar. Por lo tanto este algoritmo crea un árbol donde las hojas se etiquetan con gana, pierde, empata, desde el punto de vista de max, con ayuda de una heurística podemos etiquetar cada nodo del árbol, y el jugador max elegirá su movimiento, buscando en árbol un nodo terminal que lo lleve a la posición más favorable que puede esperar desde un estado $J(actual)$ del juego,  suponiendo que el jugador mín juega de manera ideal.
 En la práctica el método Minimax es impracticable excepto en supuestos sencillos. Realizar la búsqueda completa requerirían cantidades excesivas de tiempo y memoria. El pseudocódigo de este algoritmo es el que encontramos en $Algorithm$ \ref{alg:1}.
 
 \subsubsection{Mejora de minimax: Poda alfa-beta}
@@ -152,9 +151,9 @@ Como hemos visto una parte fundamental del algoritmo alpha-beta es la función d
 \begin{itemize}
     \item Posición del jugador $\max$
     \item Tableros locales ganados por los jugadores $\max$ y $\min$
-    \item Tener en cuenta las combinaciones para ganar (por ejemplo las filas, columnas, y las 2 diagonales) tanto para ganer un tablero local, como para el tablero global
+    \item Tener en cuenta las combinaciones para ganar (por ejemplo las filas, columnas, y las 2 diagonales) tanto para ganar un tablero local, como para el tablero global
 \end{itemize}
-Por lo que la función propuesta es dar un score, dependiendo la jugada posible, por ejemplo dar un score alto por cada tablero local ganado, un score medio si es posible que en la siguiente jugada se gana un tablero local y además, debido a la manera de jugar es posible que haya marcas más $'X'$ o $'O'$ en un tablero local, es decir generalmente no habrá la misma cantidad de marcas de ambos jugadores en el mislo tablero locar, por lo que podemos usar esta información, así que daremos un score dependiendo de cuántas marcas tenga $\max$ en su tablero local actual. 
+Por lo que la función propuesta es dar un score, dependiendo la jugada posible, por ejemplo dar un score alto por cada tablero local ganado, un score medio si es posible que en la siguiente jugada se gana un tablero local y además, debido a la manera de jugar es posible que haya marcas más $'X'$ o $'O'$ en un tablero local, es decir generalmente no habrá la misma cantidad de marcas de ambos jugadores en el mismo tablero local, por lo que podemos usar esta información, así que daremos un score dependiendo de cuántas marcas tenga $\max$ en su tablero local actual. 
 
 
 \section{Resultados}
@@ -167,14 +166,14 @@ Tablero Local Lleno/Ganado & ~14  \\
 Ganar tablero Local & ~5\\
 Sencillo &  2 \\ \hline
 \end{tabular}
-\caption{Tiempo aproximado en que la computadora tarda en decidir movimientos especificos}
+\caption{Tiempo aproximado en que la computadora tarda en decidir movimientos específicos}
 \label{tab:1}
 \end{center}
 \end{table}
 \\
 \textit{El cuadro \ref{tab:1} se obtuvo tras ejecutar el juego con una persona aproximadamente 50 veces.}
 \section{Conclusiones}
-Como podemos ver a pesar de ser dicho algoritmo el cual puede ser el más utilizado en la literatura para la toma de decisiones en juegos, esto nos ayuda siempre como una buena base al momento de implentar un juego nuevo el cual sea un buen reto de jugar humano-máquina, siempre y cuando la función de evaluación sea apropiada para el problema, como vemos en juego implementado Gato$\times$Gato debido la cantidad grande de casillas en el tablero global, al momento de hacer búsqueda puede generar una gran cantidad estados posibles en cada momento de selección y a pesar de que en el presente trabajo se usó una mejora de minimax, para tener una mejor eficiencia, aún así no es lo mejor para este juego, como trabajo futuro se propone encontrar una mejor heurística en la función de evaluación para una mejor elección además de implemetar el juego probando otras alternativas del estado del arte que hayan dado buenos resultados tales como en la sección de trabajo relacionado.
+Como podemos ver a pesar de ser dicho algoritmo el cual puede ser el más utilizado en la literatura para la toma de decisiones en juegos, esto nos ayuda siempre como una buena base al momento de implementar un juego nuevo el cual sea un buen reto de jugar humano-máquina, siempre y cuando la función de evaluación sea apropiada para el problema, como vemos en juego implementado Gato$\times$Gato debido la cantidad grande de casillas en el tablero global, al momento de hacer búsqueda puede generar una gran cantidad estados posibles en cada momento de selección y a pesar de que en el presente trabajo se usó una mejora de minimax, para tener una mejor eficiencia, aún así no es lo mejor para este juego, como trabajo futuro se propone encontrar una mejor heurística en la función de evaluación para una mejor elección además de implementar el juego probando otras alternativas del estado del arte que hayan dado buenos resultados tales como en la sección de trabajo relacionado.
 %
 % ---- Bibliography ----
 %
