@@ -1,0 +1,138 @@
+\documentclass{beamer} 
+\usepackage{babel}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{soul}
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+\usepackage{xstring}
+\graphicspath{{./images/}}
+
+
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+% \captionsetup[table]{font=scriptsize}
+
+\usepackage{booktabs}
+
+%%
+% load layout
+\usepackage{theme}
+\setUPCLayout{draft,newlogo}
+
+\newcommand{\nologo}{\setbeamertemplate{logo}{}} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Info %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% title
+		\title{Búsqueda minimax para GatoxGato}	
+	% author 
+    % (In the mandatory argument "{}", separate multiple
+    % authors with "\and" - use "\\" for better author name formatting
+    % in the title page. In the optional argument "[]" include all
+	% author names, with no "\and" or text formatting macros.)
+	% Example: 
+    %\author[A. Author Albert Einstein]{Anthony Author \and Albert Einstein}
+		\author[Abbr]{Eliú Moreno Ramírez}
+    % Address
+   \subtitle{\textsc{Inteligencia Artificial}}
+   %\logo{\AddToShipoutPictureFG{\AtPageMyLowerLeft{{\includegraphics[height=0.7cm,keepaspectratio]{\smalllogo}}}}}
+	\institute{\textsc{Instituto Nacional de Astrofísica, Óptica y Electrónica } \\
+        %Image Processing Group \\
+        %[5pt]{\includegraphics[height=1.5cm,keepaspectratio]{\fulllogo}} \\
+        [5pt]{ Maestría en Ciencias Computacionales \\
+         eliu.moreno.ramirez@gmail.com\\}
+        
+        }
+	% date
+		\presentationDate{Noviembre 2022}
+%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% typeset front slides
+
+\typesetFrontSlides
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   SECTION 1
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introducción}
+
+\subsection{ }
+
+
+\begin{frame}{Introducción}
+\framesubtitle{Introducción}
+
+La habilidad de jugar es considerada como una distincion de inteligencia, debido a la facilidad de crear situaciones complicadas con reglas sencillas, así como la complejidad para ganar se requieren de estrategias ya que se tiene de un oponente impredecible donde es necesario especificar un movimiento para cada respuesta posible del oponente, con este hecho, existe la teoría de juegos, la cual se centra en el estudio estratégico de toma de desiciones. Una manera de tomar dichas desiciones es a través de las técnicas de búqueda los cuales constituyen una representación del conocimiento, que a través de diversos algoritmos nos permite resolver ciertos problemas desde el punto de vista de la inteligencia o para el proposito de este documento la inteligencia artificial. 
+
+\end{frame}
+
+
+\subsection{Motivaciones}
+
+\begin{frame}{Motivaciones}
+	Los juegos de mesa, desde su principio han servido de entrenamiento para la humanidad, debido a que conforme se an ido a evolucionado los juegos en complejidad estos se vuelven un reto para la mente. Con forme algoritmos de busqueda se han ido mejorando, junto con el aprendizaje auomático y con la ayuda de que las computadoras superan los límites del cálculo se han aprovechado los recursos y avances para intentar resolver muchos juegos tales como: go, ajedrez, poker, damas inglésisas, gato, entre otros. 
+
+
+\end{frame}
+
+\begin{frame}
+Unos de los grandes logros en juegos de la inteligencia artificial (IA) son:
+\begin{itemize}
+
+    \item Damas inglesas: Chinook derrotó al campeón mundial MarionTinsley en 1994. Usó una base de datos de fines de juegos precalculados definiendo jugadas perfectas involucrando 8 o menos piezas en el tablero, un total de 444 mil millones de posiciones
+    \item Chess: Deep Blue derrotó al campeón mundial Garry Kasparov en un encuentro de seis juegos en 1997. Deep Blue busca 200 millones de posiciones por segundo y extiende su búsqueda 40 jugadas.
+    \item Go: en el años 2016 en Corea Lee Seidel, ex-campeón mundial de Go, fue derrotado 4-1 por el software de Google DeepMind.
+\end{itemize}
+\end{frame}
+
+\section{Metodología}
+\subsection{Reglas}
+\begin{frame}{Reglas}
+\begin{itemize}
+    \item El tablero del juego, consta de 9 tableros clásicos gato, localizados en un tablero de 3x3.
+    \item Cada tablero pequeño de gato de $3 \times 3$ lo denominaremos tablero local, y el tablero más grande de $3 \times 3$ lo denominaremos tablero global.
+    \item El juego comienza con $X$ jugando donde quieran en cualquiera de los 81 espacios vacíos. Este movimiento "envía" a su oponente a su ubicación relativa. Por ejemplo, si $X$ jugó en el cuadro superior derecho de su tablero local, entonces $O$ debe jugar a continuación en el tablero local en la parte superior derecha del tablero global. Así, $O$ puede jugar en cualquiera de los nueve lugares disponibles en ese tablero local, y cada movimiento envía a $X$ a un tablero local diferente.
+    \item Si se juega un movimiento para ganar un tablero local según las reglas del gato tradicional, entonces todo el tablero local se marca como una victoria para el jugador en el tablero global. Una vez que un jugador gana un tablero local o se llena por completo, no se pueden jugar más movimientos en ese tablero. Si un jugador es enviado a dicho tablero, entonces ese jugador puede jugar en cualquier otro tablero. El juego termina cuando un jugador gana el tablero global o no quedan movimientos legales, en cuyo caso el juego es un empate.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Un ejemplo del juego}
+\includegraphics[scale=0.5]{gato.png}
+\end{frame}
+\begin{frame}{Juego Ganador}
+\includegraphics[scale=0.5]{image.png}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   CLOSING
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Acknowledgements}
+  \centering
+INCLUDE FUNDING
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+\bibliographystyle{apalike}
+\bibliography{bibliography.bib}
+\end{frame}
+
+%%
+\end{document}
