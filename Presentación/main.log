@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.8)  20 NOV 2022 10:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.10) (preloaded format=pdflatex 2022.11.8)  28 NOV 2022 18:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1024,31 +1024,40 @@ ut line 112.
 .fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
-)
-Overfull \vbox (100.59196pt too high) detected at line 112
- []
+) [6
 
-[6
+] [7
 
 ]
-<./images//gato.png, id=95, 475.02469pt x 312.41719pt>
+<./images//gato.png, id=129, 475.02469pt x 312.41719pt>
 File: ./images//gato.png Graphic file (type png)
 <use ./images//gato.png>
-Package pdftex.def Info: ./images//gato.png  used on input line 116.
+Package pdftex.def Info: ./images//gato.png  used on input line 120.
 (pdftex.def)             Requested size: 237.51175pt x 156.2082pt.
- [7
-
- <./images//gato.png>]
-<./images//image.png, id=109, 274.77657pt x 276.28218pt>
-File: ./images//image.png Graphic file (type png)
-<use ./images//image.png>
-Package pdftex.def Info: ./images//image.png  used on input line 119.
-(pdftex.def)             Requested size: 137.38794pt x 138.14075pt.
  [8
 
- <./images//image.png>] [9
+ <./images//gato.png>]
+<./images//image.png, id=142, 274.77657pt x 276.28218pt>
+File: ./images//image.png Graphic file (type png)
+<use ./images//image.png>
+Package pdftex.def Info: ./images//image.png  used on input line 124.
+(pdftex.def)             Requested size: 137.38794pt x 138.14075pt.
+ [9
 
-] (main.bbl) [10
+ <./images//image.png>] [10
+
+]
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
+132.
+
+(C:\Program Files\MiKTeX\tex/latex/base\ts1cmss.fd
+File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [11
+
+] [12] [13
+
+] (main.bbl)
+[14
 
  <C:/Users/elium/AppData/Roaming/MiKTeX/tex/latex/beamer/beamericonarticle.pdf>
 ]
@@ -1061,28 +1070,29 @@ Package pdftex.def Info: ./images//image.png  used on input line 119.
 \tf@snm=\write8
 \openout8 = `main.snm'.
 
-
-(main.aux)
+ (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 151A0EF8AAAAAA888D21D756D6D60334;476.
+(rerunfilecheck)             Checksum: 5266563E305B8C92921E4496B97B752D;1011.
  ) 
 Here is how much of TeX's memory you used:
- 25269 strings out of 475385
- 491518 string characters out of 2786722
- 815457 words of memory out of 3000000
- 46091 multiletter control sequences out of 15000+600000
- 477891 words of font info for 58 fonts, out of 8000000 for 9000
+ 25375 strings out of 475385
+ 493701 string characters out of 2786722
+ 815566 words of memory out of 3000000
+ 46179 multiletter control sequences out of 15000+600000
+ 478530 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,798b,532s stack positions out of 10000i,1000n,20000p,200000b,80000s
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Progr
-am Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cms
-si10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (10 pages, 169090 bytes).
+ 128i,15n,122p,798b,574s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\elium\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss
+1095.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
+/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Fil
+es/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (14 pages, 195882 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 93 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 259 PDF objects out of 1000 (max. 8388607)
+ 40 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

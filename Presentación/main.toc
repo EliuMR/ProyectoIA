@@ -3,3 +3,7 @@
 \beamer@subsectionintoc {1}{2}{Motivaciones}{4}{0}{1}
 \beamer@sectionintoc {2}{Metodología}{6}{0}{2}
 \beamer@subsectionintoc {2}{1}{Reglas}{6}{0}{2}
+\beamer@subsectionintoc {2}{2}{Minimax y alpha-beta}{10}{0}{2}
+\beamer@subsectionintoc {2}{3}{Función de Evaluación}{11}{0}{2}
+\beamer@sectionintoc {3}{Resultados}{11}{0}{3}
+\beamer@sectionintoc {4}{Conclusiones}{13}{0}{4}

@@ -27,10 +27,26 @@
 \headcommand {\beamer@framepages {8}{8}}
 \headcommand {\slideentry {2}{1}{4}{9/9}{Reglas}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {2}{1}{5}{10/10}{Reglas}{0}}
+\headcommand {\beamer@subsectionpages {6}{9}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{10}{Minimax y alpha-beta}}
+\headcommand {\slideentry {2}{2}{1}{10/10}{Minimax y alpha-beta}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@partpages {1}{10}}
-\headcommand {\beamer@subsectionpages {6}{10}}
+\headcommand {\beamer@subsectionpages {10}{10}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{11}{Función de Evaluación}}
 \headcommand {\beamer@sectionpages {6}{10}}
-\headcommand {\beamer@documentpages {10}}
-\headcommand {\gdef \inserttotalframenumber {10}}
+\headcommand {\beamer@subsectionpages {11}{10}}
+\headcommand {\sectionentry {3}{Resultados}{11}{Resultados}{0}}
+\headcommand {\slideentry {3}{0}{1}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@sectionpages {11}{12}}
+\headcommand {\beamer@subsectionpages {11}{12}}
+\headcommand {\sectionentry {4}{Conclusiones}{13}{Conclusiones}{0}}
+\headcommand {\slideentry {4}{0}{1}{13/13}{}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {4}{0}{2}{14/14}{}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@partpages {1}{14}}
+\headcommand {\beamer@subsectionpages {13}{14}}
+\headcommand {\beamer@sectionpages {13}{14}}
+\headcommand {\beamer@documentpages {14}}
+\headcommand {\gdef \inserttotalframenumber {13}}
