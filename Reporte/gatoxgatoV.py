@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Juego GatoxGato 
-Proyecto: Inteligencia Artificial
 INAOE
-Eliú Moreno Ramírez
+Autor: Eliú Moreno Ramírez
+Fecha: Noviembre 2022
+Proyecto: Inteligencia Artificial
+Consiste en la implementación de una variación gatoxgato el cual toma el algoritmo alpha beta para poder jugar humano-maquina
 """
 #Librerías
 import math
@@ -19,8 +20,7 @@ if True:
     scorePuntoSimple = 1 #Marca por cada marca hecha
     pesos = [1,1,1,1,1,1,1,1,1] #Pesos de cada tablero local, podría darse más peso a algunos tableros locales
     humano = 'o'
-    cpu = 'x'
-    
+    cpu = 'x'  
 def ChecarTablero(posicion): #Guarda las posiciones del tablero global
     tableroGlobal = ['','','','','','','','','']
     ganador = ''
@@ -309,10 +309,8 @@ while GameOver(posiciones)==True: #Se puede jugar mientras no se detecte el fin 
         tableroLocalY = tableroLocalY % 3
         tableroLocalIndice = tableroLocalY*3 + tableroLocalX
         tableroLlenoX = int(mouseX / (window_size[0]/3))
-        tableroLlenoY = int(mouseY / (window_size[1]/3))
-            
-        indiceTableroLleno = tableroLlenoY*3 + tableroLlenoX
-            
+        tableroLlenoY = int(mouseY / (window_size[1]/3))        
+        indiceTableroLleno = tableroLlenoY*3 + tableroLlenoX           
         if posiciones[indiceTableroLleno][tableroLocalIndice] == '' and indiceTableroLleno in clickIndice:
             posiciones[indiceTableroLleno][tableroLocalIndice] = humano
             seleccion = tableroLocalIndice
@@ -341,11 +339,9 @@ while GameOver(posiciones)==True: #Se puede jugar mientras no se detecte el fin 
                             mejorMovimiento = [indice, i]
                                 
             seleccion = mejorMovimiento[1]
-            posiciones[mejorMovimiento[0]][mejorMovimiento[1]] = cpu
-                
+            posiciones[mejorMovimiento[0]][mejorMovimiento[1]] = cpu               
         tablero = ChecarTablero(posiciones)
-        clickIndice = []
-            
+        clickIndice = []            
         if tablero[seleccion] == '':
             clickIndice.append(seleccion)
         else:
@@ -354,23 +350,5 @@ while GameOver(posiciones)==True: #Se puede jugar mientras no se detecte el fin 
                     clickIndice.append(i)
         Dibujar(clickIndice)
         fin = time.time()
-        """
-        #Esta parte es para imprimir el tablero Global y ver como se comporta
-        positionsA=['','','','','','','','','']
-        for i in range (9):
-            if ChecarTablero(positions)[i]=='':
-                positionsA[i]=' '
-            else:
-                positionsA[i]=ChecarTablero(positions)[i]
-        suma=0
-        for i in range(3):
-            print(' ',positionsA[0+suma],'|',positionsA[1+suma],'|',positionsA[2+suma],' ',)
-            if i!=2:
-                print(' ---|---|--- ')
-            else:
-                print(' ')
-            suma=suma+3
-        #print(ChecarTablero(positions))
-        print(fin-inicio)"""
 Ganador(posiciones)
 print('Fin del Juego')

@@ -9,12 +9,7 @@
 \usepackage{algorithm}
 \usepackage[spanish]{babel}
 \usepackage[noend]{algpseudocode}
-% Used for displaying a sample figure. If possible, figure files should
-% be included in EPS format.
-%
-% If you use the hyperref package, please uncomment the following line
-% to display URLs in blue roman font according to Springer's eBook style:
-% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
 
 \begin{document}
 %
@@ -36,9 +31,9 @@
 \maketitle              % typeset the header of the contribution
 %
 \begin{abstract}
-Uno de los primeros acercamientos a la inteligencia artificial fue mediante la búsqueda principalmente en juegos donde por primeramente el se humano se enfrento contra una computadora, uno de los algoritmos de búsqueda más reconocido es el minimax así como su variante alpha-beta, por lo que usando dichos algoritmos se propone implementar un juego, el cual es una versión más compleja del juego clásico gato, el cual se denominó como gatoxgato.
+One of the first approaches to artificial intelligence was through the search mainly in games where for the first time the human faced a computer, one of the most recognized search algorithms is the minimax as well as its alpha-beta variant, so using these algorithms, it is proposed to implement a game, which is a more complex version of the classic cat game, which was called Gato$\times$Gato.
 
-\keywords{Minimax  \and Alpha-Beta \and Búsqueda \and Inteligencia artificial}
+\keywords{Minimax  \and Alpha-Beta \and Búsqueda \and Inteligencia artificial \and Gato$\times$Gato}
 \end{abstract}
 %
 %
@@ -61,7 +56,7 @@ Inclusive actualmente las computadoras ahora da una nueva manera en el análisis
 \begin{itemize}
     \item El tablero del juego, consta de 9 tableros clásicos gato, localizados en un tablero de 3x3.
     \item Cada tablero pequeño de gato de $3 \times 3$ lo denominaremos tablero local, y el tablero más grande de $3 \times 3$ lo denominaremos tablero global.
-    \item El juego comienza con $X$ jugando donde quieran en cualquiera de los 81 espacios vacíos. Este movimiento "envía" a su oponente a su ubicación relativa. Por ejemplo, si $X$ jugó en el cuadro superior derecho de su tablero local, entonces $O$ debe jugar a continuación en el tablero local en la parte superior derecha del tablero global. Entonces, $O$ puede jugar en cualquiera de los nueve lugares disponibles en ese tablero local, y cada movimiento envía a $X$ a un tablero local diferente.
+    \item El juego comienza con $X$ jugando donde quieran en cualquiera de los 81 espacios vacíos. Este movimiento manda a su oponente a su ubicación relativa. Por ejemplo, si $X$ jugó en el cuadro superior derecho de su tablero local, entonces $O$ debe jugar a continuación en el tablero local en la parte superior derecha del tablero global. Entonces, $O$ puede jugar en cualquiera de los nueve lugares disponibles en ese tablero local, y cada movimiento envía a $X$ a un tablero local diferente.
     
     \item Si se juega un movimiento para ganar un tablero local según las reglas del gato tradicional, entonces todo el tablero local se marca como una victoria para el jugador en el tablero global. Una vez que un jugador gana un tablero local o se llena por completo, no se pueden jugar más movimientos en ese tablero. Si un jugador es enviado a dicho tablero, entonces ese jugador puede jugar en cualquier otro tablero. El juego termina cuando un jugador gana el tablero global o no quedan movimientos legales, en cuyo caso el juego es un empate.
 
@@ -110,7 +105,7 @@ Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se r
 \caption{Algoritmo minimax con mejora alpha-beta}\label{alg:2}
 \begin{algorithmic}
 \State $\alpha \gets -\infty$
-\State $\beta \gets 8\infty$
+\State $\beta \gets \infty$
 \If{$j$ Nodo terminal} 
     \State $V(J) \gets evaluacion(J)$
 \ElsIf{sean   $J_1, J_2, . . . , J_n$ los sucesores de J}
@@ -146,17 +141,22 @@ Esta búsqueda alfa-beta va actualizando el valor de los parámetros según se r
 \EndIf 
 \end{algorithmic}
 \end{algorithm}
-\subsubsection{Función de evaluación propuesta}
-Como hemos visto una parte fundamental del algoritmo alpha-beta es la función de evaluación, la cual debe involucrar toda la información actual de un estado en el juego. Por lo que para el juego Gato$\times$Gato necesitamos de la siguiente información:
+\subsubsection{Implementación}
+Para la implementación del programa como ya hemos dicho se realizará usando el algoritmo mejorado de minimax el cual es alpha beta, éste se realizó en el lenguaje \textit{python}, dicha consiste en las siguientes partes: 
+\begin{itemize}
+\item Interfaz donde se muestra el dibujo y la interacción de la persona con el tablero, esto se realiza con la librería \textit{pygame}.
+\item El árbol de búsqueda, donde se guardan los estados que se pueden desombocar desde uno inicial, el cual debe tener la información de un peso(para el presente trabajo de denominará como score), la posición de cada estado y los turnos de max y min. Esta parte para hacer sensilla la implementación se realizarán listas, ya que es muy sencillo acceder a ella con índices y guardar cualquier tipo de información.
+\item Por último la parte fundamenta para el algoritmo alpha-beta es la función de evaluación, la cual debe involucrar toda la información actual de un estado en el juego. Por lo que para el juego Gato$\times$Gato necesitamos de la siguiente información:
 \begin{itemize}
     \item Posición del jugador $\max$
     \item Tableros locales ganados por los jugadores $\max$ y $\min$
     \item Tener en cuenta las combinaciones para ganar (por ejemplo las filas, columnas, y las 2 diagonales) tanto para ganar un tablero local, como para el tablero global
 \end{itemize}
-Por lo que la función propuesta es dar un score, dependiendo la jugada posible, por ejemplo dar un score alto por cada tablero local ganado, un score medio si es posible que en la siguiente jugada se gana un tablero local y además, debido a la manera de jugar es posible que haya marcas más $'X'$ o $'O'$ en un tablero local, es decir generalmente no habrá la misma cantidad de marcas de ambos jugadores en el mismo tablero local, por lo que podemos usar esta información, así que daremos un score dependiendo de cuántas marcas tenga $\max$ en su tablero local actual. 
+Por lo que la función propuesta es dar un score, dependiendo la jugada posible, por ejemplo dar un score alto por cada tablero local ganado, un score medio si es posible que en la siguiente jugada se gana un tablero local y además, debido a la manera de jugar es posible que haya marcas más $'X'$ o $'O'$ en un tablero local, es decir generalmente no habrá la misma cantidad de marcas de ambos jugadores en el mismo tablero local, por lo que podemos usar esta información, así que daremos un score bajo dependiendo de cuántas marcas tenga $\max$ en su tablero local actual, siempre y cuando este movimiento no sea un movimiento de los previos mencionados. Por lo que para la implementación de esta función se usó como un score alto, medio, bajo los puntajes 20,3,1 respectivamente. 
+\end{itemize}
 
 
-\section{Resultados}
+\section{Discusiones}
 El algoritmo alpha-beta se desempeña de buena manera para este juego el cual puede llegar a generar un árbol lo suficientemente grande si se hiciera búsqueda exhaustiva por lo que dicha mejora fue lo más óptimo sin embargo su desempeño no es el mejor en ciertas situaciones, por ejemplo al ejecutar el juego en el momento en que el jugador 'humano' manda a la computadora a un tablero local el cual está o ya ganado o lleno (ver cuadro \ref{tab:1}), la búsqueda de la mejor posición se complica porque en vez de analizar un tablero local, el algoritmo toma en cuenta el resto de los locales, lo cual incrementa el tiempo de elección de mejor movimiento, pero cuando es cualquier otro caso dentro de las reglas, sí es menor el tiempo de ejecución pero aún no es el mejor.
 \begin{table}
 \begin{center}
@@ -172,9 +172,10 @@ Sencillo &  2 \\ \hline
 \end{table}
 \\
 \textit{El cuadro \ref{tab:1} se obtuvo tras ejecutar el juego con una persona aproximadamente 50 veces.}
+
 \section{Conclusiones}
-Como podemos ver a pesar de ser dicho algoritmo el cual puede ser el más utilizado en la literatura para la toma de decisiones en juegos, esto nos ayuda siempre como una buena base al momento de implementar un juego nuevo el cual sea un buen reto de jugar humano-máquina, siempre y cuando la función de evaluación sea apropiada para el problema, como vemos en juego implementado Gato$\times$Gato debido la cantidad grande de casillas en el tablero global, al momento de hacer búsqueda puede generar una gran cantidad estados posibles en cada momento de selección y a pesar de que en el presente trabajo se usó una mejora de minimax, para tener una mejor eficiencia, aún así no es lo mejor para este juego, como trabajo futuro se propone encontrar una mejor heurística en la función de evaluación para una mejor elección además de implementar el juego probando otras alternativas del estado del arte que hayan dado buenos resultados tales como en la sección de trabajo relacionado.
-%
+Como podemos ver a pesar de ser dicho algoritmo el cual puede desempeñarse bien en la toma de decisiones en juegos, esto nos ayuda siempre como una buena base al momento de implementar un juego nuevo el cual sea un buen reto de jugar humano-máquina, siempre y cuando la función de evaluación sea apropiada para el problema, como vemos en juego implementado Gato$\times$Gato debido la cantidad grande de casillas en el tablero global, al momento de hacer búsqueda puede generar una gran cantidad estados posibles en cada momento de selección y a pesar de que en el presente trabajo se usó una mejora de minimax, para tener una mejor eficiencia, aún así no es lo mejor para este juego, como trabajo futuro se propone encontrar una mejor heurística en la función de evaluación para una mejor elección ya que es importante a discutir la importancia de las casillas es decir, es bien sabido que en los juegos de mesa algunas posiciones ganadas por un jugador son de mayor importancia que otras por ejemplo, en el clásico juego gato, aquel jugador que marcó la casilla de en medio tiene más posibles de ganar que el otro, esto porque si tienes esa marca tienes 4 posibles estados ganadores(que son ganar por una linea horizontal, una vertical y las dos diagonales) de un total de 8 posibles estados que permiten ganar el juego(que son las 3 lineas horizontales, 3 verticales y las 2 diagonales), tomando todas las demás casillas y que al aumentar las posibilidades de ganar tirando en medio disminuye mucho las posibilidades de que el otro jugador gane. Con este precedente es posible que para el Gato$\times$Gato algunas casillas tengan más peso que otras, por lo que sería interesante experimentar con tales hipótesis. Así como el jugar con los pesos de las diferentes tiradas usadas en la implementación, además de usar técnicas de juegos empleadas en el estado del arte como se vio en la investigación relacionada.
+
 % ---- Bibliography ----
 %
 % BibTeX users should specify bibliography style 'splncs04'.
