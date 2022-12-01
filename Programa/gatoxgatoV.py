@@ -334,7 +334,7 @@ while GameOver(posiciones)==True: #Se puede jugar mientras no se detecte el fin 
                         posiciones[indice][i] = cpu
                         seleccion = i
                             
-                        Eval = minimax(posiciones, seleccion, 6, -infinity, infinity, False)
+                        Eval = minimax(posiciones, seleccion, 6, -infinity, infinity, False)#Aquí podemos elegir profundidad 20,10,etc.,sin embargo se pone 6 para que sea más rápida la respuesta del programa
                         posiciones[indice][i] = ''
                         if Eval > maxEval:
                             maxEval = Eval
